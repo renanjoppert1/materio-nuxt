@@ -1,0 +1,18 @@
+.theme--light.v-application {
+  background: #f4f5fa !important;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgb(244, 245, 250) !important;
+  color: rgba(94, 86, 105, 0.87);
+}
+
+.bg-gradient-primary.v-list-item--active {
+  background: linear-gradient(98deg, #c48eff, #9155fd 94%) !important;
+}

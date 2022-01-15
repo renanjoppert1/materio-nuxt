@@ -46,7 +46,10 @@ export default {
   ],
 
   styleResources: {
-    scss: ["@/plugins/vuetify/default-preset/preset/overrides.scss"],
+    scss: [
+      "@/plugins/vuetify/default-preset/preset/overrides.scss",
+      "@/plugins/vuetify/default-preset/preset/variables.scss",
+    ],
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -59,16 +62,24 @@ export default {
   vuetify: {
     // customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: false,
       themes: {
+        light: {
+          primary: "#9155FD",
+          accent: "#0d6efd",
+          secondary: "#8A8D93",
+          success: "#56CA00",
+          info: "#16B1FF",
+          warning: "#FFB400",
+          error: "#FF4C51",
+        },
         dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3,
+          primary: "#9155FD",
+          accent: "#0d6efd",
+          secondary: "#8A8D93",
+          success: "#56CA00",
+          info: "#16B1FF",
+          warning: "#FFB400",
+          error: "#FF4C51",
         },
       },
     },

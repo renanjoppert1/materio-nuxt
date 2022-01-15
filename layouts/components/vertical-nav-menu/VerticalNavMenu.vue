@@ -6,14 +6,11 @@
     width="260"
     class="app-navigation-menu"
     :right="$vuetify.rtl"
-    @input="val => $emit('update:is-drawer-open', val)"
+    @input="(val) => $emit('update:is-drawer-open', val)"
   >
     <!-- Navigation Header -->
     <div class="vertical-nav-header d-flex items-center ps-6 pe-5 pt-5 pb-2">
-      <router-link
-        to="/"
-        class="d-flex align-center text-decoration-none"
-      >
+      <nuxt-link to="/" class="d-flex align-center text-decoration-none">
         <v-img
           :src="require('@/assets/images/logos/logo.svg')"
           max-height="30px"
@@ -24,73 +21,60 @@
           class="app-logo me-3"
         ></v-img>
         <v-slide-x-transition>
-          <h2 class="app-title text--primary">
-            MATERIO
-          </h2>
+          <h2 class="app-title text--primary">MATERIO</h2>
         </v-slide-x-transition>
-      </router-link>
+      </nuxt-link>
     </div>
 
     <!-- Navigation Items -->
-    <v-list
-      expand
-      shaped
-      class="vertical-nav-menu-items pr-5"
-    >
+    <v-list expand shaped class="vertical-nav-menu-items pr-5">
       <nav-menu-link
         title="Dashboard"
-        :to="{ name: 'dashboard' }"
+        to="/"
         :icon="icons.mdiHomeOutline"
       ></nav-menu-link>
       <nav-menu-link
         title="Account Settings"
-        :to="{ name: 'pages-account-settings'}"
+        to="/account-settings"
         :icon="icons.mdiAccountCogOutline"
       ></nav-menu-link>
-      <nav-menu-group
-        title="Pages"
-        :icon="icons.mdiFileOutline"
-      >
+      <nav-menu-group title="Pages" :icon="icons.mdiFileOutline">
         <nav-menu-link
           title="Login"
-          :to="{ name: 'pages-login' }"
+          to="/login"
           target="_blank"
         ></nav-menu-link>
         <nav-menu-link
           title="Register"
-          :to="{ name: 'pages-register' }"
+          to="/register"
           target="_blank"
         ></nav-menu-link>
-        <nav-menu-link
-          title="Error"
-          :to="{ name: 'error-404' }"
-          target="_blank"
-        ></nav-menu-link>
+        <nav-menu-link title="Error" to="/404" target="_blank"></nav-menu-link>
       </nav-menu-group>
       <nav-menu-section-title title="USER INTERFACE"></nav-menu-section-title>
       <nav-menu-link
         title="Typography"
-        :to="{ name: 'typography' }"
+        to="/typography"
         :icon="icons.mdiAlphaTBoxOutline"
       ></nav-menu-link>
       <nav-menu-link
         title="Icons"
-        :to="{ name: 'icons' }"
+        to="/icons"
         :icon="icons.mdiEyeOutline"
       ></nav-menu-link>
       <nav-menu-link
         title="Cards"
-        :to="{ name: 'cards' }"
+        to="/cards"
         :icon="icons.mdiCreditCardOutline"
       ></nav-menu-link>
       <nav-menu-link
         title="Tables"
-        :to="{ name: 'simple-table' }"
+        to="/simple-table"
         :icon="icons.mdiTable"
       ></nav-menu-link>
       <nav-menu-link
         title="Form Layouts"
-        :to="{ name: 'form-layouts' }"
+        to="/form-layouts"
         :icon="icons.mdiFormSelect"
       ></nav-menu-link>
     </v-list>
@@ -100,7 +84,11 @@
       rel="nofollow"
     >
       <v-img
-        :src="require(`@/assets/images/pro/upgrade-banner-${$vuetify.theme.dark ? 'dark' : 'light'}.png`)"
+        :src="
+          require(`@/assets/images/pro/upgrade-banner-${
+            $vuetify.theme.dark ? 'dark' : 'light'
+          }.png`)
+        "
         alt="upgrade-banner"
         transition="scale-transition"
         class="upgrade-banner mx-auto"
@@ -121,10 +109,10 @@ import {
   mdiFileOutline,
   mdiFormSelect,
   mdiAccountCogOutline,
-} from '@mdi/js'
-import NavMenuSectionTitle from './components/NavMenuSectionTitle.vue'
-import NavMenuGroup from './components/NavMenuGroup.vue'
-import NavMenuLink from './components/NavMenuLink.vue'
+} from "@mdi/js";
+import NavMenuSectionTitle from "./components/NavMenuSectionTitle.vue";
+import NavMenuGroup from "./components/NavMenuGroup.vue";
+import NavMenuLink from "./components/NavMenuLink.vue";
 
 export default {
   components: {
@@ -150,9 +138,9 @@ export default {
         mdiFormSelect,
         mdiAccountCogOutline,
       },
-    }
+    };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -174,7 +162,7 @@ export default {
 }
 
 @include theme(app-navigation-menu) using ($material) {
-  background-color: map-deep-get($material, 'background');
+  background-color: map-deep-get($material, "background");
 }
 
 .app-navigation-menu {
